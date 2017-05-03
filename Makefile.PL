@@ -11,4 +11,15 @@ WriteMakefile(
   OPTIMIZE       => '-O3',
   LICENSE        => 'freebsd',
   XSMULTI        => 1,
+  (eval { ExtUtils::MakeMaker->VERSION(6.46) } ? (META_MERGE => {
+      'meta-spec' => { version => 2 },
+      resources => {
+          repository => {
+              type => 'git',
+              url  => 'https://github.com/dnmfarrell/XS-Tutorial.git',
+              web  => 'https://github.com/dnmfarrell/XS-Tutorial',
+          },
+      }})
+   : ()
+  ),
 );
