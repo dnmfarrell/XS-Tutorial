@@ -14,7 +14,8 @@ In L<XS::Tutorial::Two>, we learned how to write our own functions in XS, how to
 process multiple arguments, and return different values, including C<undef>.
 
 In this tutorial I'm going to cover some useful routines for common cases you'll
-encounter when programming in XS. One that you've already seen is C<SvOK> which can tell you if a scalar is defined or not.
+encounter when programming in XS. One that you've already seen is C<SvOK> which
+can tell you if a scalar is defined or not. These are the topics I'll discuss:
 
 =over 2
 
@@ -168,8 +169,8 @@ compatible characters (decimal values 0-127).
       PUSHs(sv_2mortal(newSViv(1)));
     }
 
-This function returns true if the scalar contains UTF-8 data I<and> it is
-downgrade-able to ASCII. It does that by using the C<sv_utf8_downgrade>
+This function returns false if the scalar contains UTF-8 data I<and> it is
+not downgrade-able to ASCII. It does that by using the C<sv_utf8_downgrade>
 function, which accepts the scalar and a boolean value indicating if it's
 ok to fail. As the second argument is C<TRUE>, the function simply returns
 false if the scalar is not downgrade-able (otherwise it would C<croak>).
