@@ -306,7 +306,7 @@ This will delete all the build files and reset the working directory to normal.
 
 =item * For writing Makefile.PL files: ExtUtils::MakeMaker L<docs|https://metacpan.org/pod/ExtUtils::MakeMaker> are invaluable
 
-=item * Perl's built-in L<rand|http://perldoc.perl.org/functions/rand.html> and <srand|http://perldoc.perl.org/functions/srand.html> functions
+=item * Perl's built-in L<rand|http://perldoc.perl.org/functions/rand.html> and L<srand|http://perldoc.perl.org/functions/srand.html> functions
 
 =back
 
