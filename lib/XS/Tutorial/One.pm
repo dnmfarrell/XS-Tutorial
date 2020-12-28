@@ -99,7 +99,7 @@ indicates the name of the C function to be called I<and> it defines the
 signature of the xsub.
 
 In this case we're calling C<rand> and accepting no parameters. This isn't
-Perl's built-in rand function, I<this> rand comes from stdlib.h.
+Perl's built-in rand function, I<this> rand comes from F<stdlib.h>.
 
 The final thing we need is a F<Makefile.PL> script - as XS code is compiled, we
 need a tool to build it before we can use it:
@@ -124,7 +124,7 @@ The ExtUtils::MakeMaker L<docs|https://metacpan.org/pod/ExtUtils::MakeMaker> exp
 But let's talk about C<XSMULTI>. This is a relatively new feature which allows
 you to have separate .xs files for modules. By default EUMM assumes the xs
 file matches the distribution name. In this case that would mean having a single
-Tutorial.xs file, with multiple xs C<MODULE> and C<PACKAGE> declarations in it.
+F<Tutorial.xs> file, with multiple xs C<MODULE> and C<PACKAGE> declarations in it.
 By using C<XSMULTI>, we can have multiple XS files, one for each module in the
 distribution instead.
 
@@ -169,7 +169,7 @@ happened to our C<rand> xsub:
 
 C<xsubpp> has replaced our XS code with some rather ugly C macros! These macros
 are part of the Perl interpreter's C API. Many are documented in L<perlapi|http://perldoc.perl.org/perlapi.html>
-and they are usually defined in C<XSUB.h> or C<perl.h> in the Perl source code.
+and they are usually defined in F<XSUB.h> or F<perl.h> in the Perl source code.
 
 So what are these macros doing? At a high level, C<dVAR> and C<dXSARGS> setup
 the global pointer stack and some local variables. C<items> is a count of the
