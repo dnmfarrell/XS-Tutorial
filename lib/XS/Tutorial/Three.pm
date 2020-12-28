@@ -42,7 +42,7 @@ required:
   1;
 
 
-That should be saved as C<lib/XS/Tutorial/Three.pm>.
+That should be saved as F<lib/XS/Tutorial/Three.pm>.
 
 =head2 XS Code
 
@@ -57,7 +57,7 @@ The top of the XS file will look similar to the previous chapter:
   PROTOTYPES: ENABLE
 
 Remember to append any XS code after the C<PROTOTYPES> line. This should be saved
-as C<lib/XS/Tutorial/Three.xs>.
+as F<lib/XS/Tutorial/Three.xs>.
 
 =head2 Scheduling XS code to run at startup
 
@@ -70,7 +70,7 @@ check to see if the init code has been run, and if not, run it before
 executing the rest of the function code.
 
 However XS offers another way to do it by using the C<BOOT> keyword. Any C code
-included below the keyword, will be executed during the startup process:
+included below the keyword will be executed during the startup process:
 
   BOOT:
   printf("We're starting up!\n");
@@ -88,7 +88,7 @@ regular Perl, XS does B<not> execute tied code automatically.
 
 XS does provide L<functions|https://perldoc.perl.org/perlapi.html#Magical-Functions> for working with tied variables though. One you'll
 see in a lot of XS code is C<SvGETMAGIC>. Imagine your function is passed a
-tied variable; it's value will be undefined in XS, until you call C<mg_get>
+tied variable; its value will be undefined in XS, until you call C<mg_get>
 ("magic get") on it, which calls C<FETCH>.
 
 Unfortunately, C<mg_get> can only be called on tied scalars so you don't want to
