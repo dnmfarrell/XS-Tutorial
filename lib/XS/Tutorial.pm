@@ -1,5 +1,5 @@
 package XS::Tutorial;
-BEGIN { our $VERSION = 0.03 }
+BEGIN { our $VERSION = 0.04 }
 1;
 
 =encoding utf8
