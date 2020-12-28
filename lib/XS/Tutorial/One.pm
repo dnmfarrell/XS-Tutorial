@@ -105,18 +105,18 @@ The final thing we need is a F<Makefile.PL> script - as XS code is compiled, we
 need a tool to build it before we can use it:
 
   use 5.008005;
-  use ExtUtils::MakeMaker 7.12; # for XSMULTI option
+  use ExtUtils::MakeMaker;
 
   WriteMakefile(
-    NAME           => 'XS::Tutorial',
-    VERSION_FROM   => 'lib/XS/Tutorial.pm',
-    PREREQ_PM      => { 'ExtUtils::MakeMaker' => '7.12' },
+    NAME => 'XS::Tutorial',
+    VERSION_FROM => 'lib/XS/Tutorial.pm',
+    CONFIGURE_REQUIRES => { 'ExtUtils::MakeMaker' => '7.12' }, # for XSMULTI option
     ABSTRACT_FROM  => 'lib/XS/Tutorial.pm',
-    AUTHOR         => 'David Farrell',
-    CCFLAGS        => '-Wall -std=c99',
-    OPTIMIZE       => '-O3',
-    LICENSE        => 'freebsd',
-    XSMULTI        => 1,
+    AUTHOR => 'David Farrell',
+    CCFLAGS => '-Wall -std=c99',
+    OPTIMIZE => '-O3',
+    LICENSE => 'freebsd',
+    XSMULTI => 1,
   );
 
 The ExtUtils::MakeMaker L<docs|https://metacpan.org/pod/ExtUtils::MakeMaker> explain these options.
@@ -278,10 +278,10 @@ This will rebuild and test the distribution. Because XS code is compiled,
 writing tests and using that one liner, you can quickly cycle through coding
 and testing.
 
-Don't forget to add Test::More to the C<PREREQ_PM> entry in F<Makefile.PL>. When
+Don't forget to add Test::More to your F<Makefile.PL>. When
 you don't have a specific minimum version, you can just use 0:
 
-  PREREQ_PM => { 'Test::More' => 0, 'ExtUtils::MakeMaker' => '7.12' },
+  TEST_REQUIRES => { 'Test::More' => 0 },
 
 =head2 Cleanup
 
