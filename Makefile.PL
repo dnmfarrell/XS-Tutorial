@@ -1,5 +1,5 @@
 use ExtUtils::MakeMaker;
-
+my $repo = 'https://github.com/dnmfarrell/XS-Tutorial';
 WriteMakefile(
   NAME           => 'XS::Tutorial',
   VERSION_FROM   => 'lib/XS/Tutorial.pm',
@@ -17,8 +17,11 @@ WriteMakefile(
       resources => {
           repository => {
               type => 'git',
-              url  => 'https://github.com/dnmfarrell/XS-Tutorial.git',
-              web  => 'https://github.com/dnmfarrell/XS-Tutorial',
+              url  => "$repo.git",
+              web  => $repo,
+          },
+          bug_tracker => {
+              web => "$repo/issues",
           },
       }})
    : ()
